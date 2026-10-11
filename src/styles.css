@@ -171,7 +171,7 @@ body:has(.slideshow) .site-header { padding-block: 28px 32px; }
 /* Neighboring paintings hint at the rest of the sequence. */
 .slideshow { position: relative; overflow: hidden; }
 .slideshow .slide .piece-img img { max-width: 60%; }
-.peek { position: absolute; top: calc((100svh - 250px) * .15); height: calc((100svh - 250px) * .7); width: 14%; overflow: hidden; border: 0; padding: 0; background: none; cursor: pointer; opacity: .18; }
+.peek { position: absolute; top: calc((100svh - 250px) * .15); height: calc((100svh - 250px) * .7); width: 14%; overflow: hidden; border: 0; padding: 0; background: none; cursor: pointer; opacity: .30; }
 .peek:hover, .peek:focus-visible { opacity: 1; }
 .peek-prev { left: 0; }
 .peek-next { right: 0; }
