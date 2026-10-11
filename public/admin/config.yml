@@ -1,7 +1,7 @@
 # Content editor for the website. Open yoursite.com/admin to use it.
 backend:
   name: github
-  repo: YOUR-GITHUB-USERNAME/scott-sullivan-site   # <- change once, when setting up
+  repo: msuphi236-boop/scott-sullivan-site   # <- change once, when setting up
   branch: main
   commit_messages:
     update: "Update {{slug}}"
@@ -9,8 +9,8 @@ backend:
 # Lets you try the editor on your own computer (npm run cms) before going live.
 local_backend: true
 
-site_url: https://scottsullivanart.com
-display_url: https://scottsullivanart.com
+site_url: https://scottsullivan.art
+display_url: https://scottsullivan.art
 media_folder: public/images/uploads
 public_folder: /images/uploads
 
