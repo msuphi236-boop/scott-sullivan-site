@@ -84,10 +84,8 @@ main { max-width: 1640px; margin-inline: auto; }
 .piece { margin: 0; }
 .piece-img { display: flex; justify-content: center; }
 .piece-img img {
-  width: auto; height: auto; max-width: 100%;
-  max-height: calc(100vh - 330px);
-  max-height: calc(100svh - 330px);
-  min-height: 0;
+  width: 60%; height: auto; max-width: 100%;
+  max-height: none;
 }
 .piece-foot {
   display: grid; grid-template-columns: minmax(0, 1fr) auto;
