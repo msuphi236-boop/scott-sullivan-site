@@ -150,3 +150,20 @@ body:has(.piece) .site-header { padding-block: 28px 32px; }
   padding-block: clamp(96px, 12vw, 176px) 40px;
   font-size: 11px; color: var(--quiet); letter-spacing: 0.04em;
 }
+
+/* One painting at a time, with a stable stage and controls. */
+body:has(.slideshow) .site-header { padding-block: 28px 32px; }
+.slide { margin: 0; }
+.slide[hidden] { display: none; }
+.slide .piece-img { height: calc(100svh - 250px); min-height: 180px; align-items: center; }
+.slide .piece-img img { width: auto; height: auto; max-width: 80%; max-height: 100%; }
+.slide .cap { text-align: center; }
+.slider-controls { justify-content: center; margin-top: 22px; }
+.slider-controls button { border: 0; background: none; padding: 0; font: inherit; letter-spacing: inherit; text-transform: inherit; color: var(--quiet); cursor: pointer; }
+.slider-controls button:hover { color: var(--ink); }
+.slider-controls button:focus-visible { outline: 1px solid var(--ink); outline-offset: 5px; }
+@media (max-width: 640px) {
+  .slide .piece-img { height: calc(100svh - 280px); }
+  .slide .piece-img img { max-width: 100%; }
+  .slider-controls { gap: 18px; font-size: 10px; }
+}
