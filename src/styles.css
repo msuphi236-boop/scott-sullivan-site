@@ -83,9 +83,11 @@ main { max-width: 1640px; margin-inline: auto; }
 /* Single artwork */
 .piece { margin: 0; }
 .piece-img { display: flex; justify-content: center; }
+body:has(.piece) .site-header { padding-block: 28px 32px; }
 .piece-img img {
-  width: 60%; height: auto; max-width: 100%;
-  max-height: none;
+  width: auto; height: auto; max-width: 80%;
+  max-height: calc(100vh - 240px);
+  max-height: calc(100svh - 240px);
 }
 .piece-foot {
   display: grid; grid-template-columns: minmax(0, 1fr) auto;
@@ -106,7 +108,7 @@ main { max-width: 1640px; margin-inline: auto; }
 .pager .count { color: var(--quiet); letter-spacing: 0.06em; font-variant-numeric: tabular-nums; }
 
 @media (max-width: 640px) {
-  .piece-img img { width: 100%; max-width: 100%; max-height: none; }
+  .piece-img img { width: auto; max-width: 100%; max-height: calc(100svh - 260px); }
   .piece-foot { grid-template-columns: minmax(0, 1fr); margin-top: 20px; }
   .pager { flex-wrap: wrap; gap: 14px 20px; }
 }
