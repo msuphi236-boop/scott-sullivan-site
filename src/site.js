@@ -44,6 +44,15 @@
     [before, after].forEach(function (button) {
       button.style.top = (bounds.top - container.top) + 'px';
       button.style.height = bounds.height + 'px';
+      var previewImage = button.querySelector('img');
+      if (previewImage) {
+        var ratio = Number(previewImage.getAttribute('width')) / Number(previewImage.getAttribute('height'));
+        previewImage.style.height = bounds.height + 'px';
+        previewImage.style.width = (bounds.height * ratio) + 'px';
+        previewImage.style.maxHeight = 'none';
+        previewImage.style.maxWidth = 'none';
+        previewImage.style.top = '0';
+      }
     });
   }
   if (window.ResizeObserver) {
