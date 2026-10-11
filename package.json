@@ -1,0 +1,15 @@
+{
+  "name": "scott-sullivan-site",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "preview": "node build.mjs --preview",
+    "serve": "npx serve dist",
+    "cms": "npx decap-server"
+  },
+  "optionalDependencies": {
+    "sharp": "^0.33.5"
+  }
+}
