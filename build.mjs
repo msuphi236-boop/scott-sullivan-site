@@ -137,12 +137,26 @@ const header = (current) => `<a class="skip" href="#main">Skip to content</a>
 </header>`;
 const footer = `<footer class="site-footer">© ${YEAR} ${esc(site.name)}</footer>`;
 
-const workIndex = () => `<h1 class="visually-hidden">Work</h1>
+const workGrid = () => `<h1 class="visually-hidden">Work</h1>
 <ul class="grid">
 ${works.map((w, i) => `  <li class="tile" id="${w.slug}"><a href="${link(`/work/${w.slug}/`)}">
     <span class="frame">${img(w.im, altText(w), { sizes: '(min-width: 640px) 45vw, 100vw', eager: i < 3, priority: i === 0 })}</span>
     <span class="cap">${titleLine(w)}</span></a></li>`).join('\n')}
 </ul>`;
+
+const workIndex = () => `<section class="slideshow" aria-label="Selected paintings">
+  <h1 class="visually-hidden">Work</h1>
+  ${works.map((w,i)=>`<figure class="slide" ${i?'hidden':''}>
+    <a class="piece-img" href="${link('/work/'+w.slug+'/')}">${img(w.im,altText(w),{sizes:'80vw',eager:i===0,priority:i===0})}</a>
+    <figcaption class="cap">${titleLine(w)}</figcaption>
+  </figure>`).join('')}
+  <nav class="slider-controls pager" aria-label="Browse paintings">
+    <button type="button" data-step="-1">Previous</button>
+    <span class="count" aria-live="polite">1 / ${works.length}</span>
+    <button type="button" data-step="1">Next</button>
+    <a href="/all/">View all</a>
+  </nav>
+</section>`;
 
 const piece = (w, i) => {
   const prev = works[(i - 1 + works.length) % works.length];
@@ -161,7 +175,7 @@ const piece = (w, i) => {
       <a rel="prev" href="${link(`/work/${prev.slug}/`)}">Previous</a>
       <span class="count">${i + 1} / ${works.length}</span>
       <a rel="next" href="${link(`/work/${next.slug}/`)}">Next</a>
-      <a data-index href="${link(`/#${w.slug}`)}">Index</a>
+      <a data-index href="${link(`/all/#${w.slug}`)}">Index</a>
     </nav>
   </div>
 </article>`;
@@ -209,7 +223,7 @@ ${header(current === 'piece' ? 'work' : current)}
 ${body}
 </main>
 ${footer}
-${current === 'piece' ? '<script src="/assets/site.js" defer></script>' : ''}
+${(current === 'piece' || current === 'work') ? '<script src="/assets/site.js" defer></script>' : ''}
 </body>
 </html>
 `;
@@ -290,6 +304,10 @@ ${router}
     title: site.name, description: site.description, pathname: '/', current: 'work', body: workIndex(), image: ogFirst,
     jsonld: { '@context': 'https://schema.org', '@type': 'Person', name: site.name, url: SITE_URL, jobTitle: 'Painter',
       sameAs: ig ? [`https://www.instagram.com/${ig}/`] : [] },
+  }));
+  await write('all/index.html', doc({
+    title: 'All work — ' + site.name, description: site.description,
+    pathname: '/all/', current: 'all', body: workGrid(), image: ogFirst,
   }));
   for (const [i, w] of works.entries()) {
     await write(`work/${w.slug}/index.html`, doc({
