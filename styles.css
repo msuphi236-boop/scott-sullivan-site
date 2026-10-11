@@ -1,0 +1,152 @@
+/* Layout: a quiet gallery wall. Name top-left, three words of navigation top-right,
+   paintings on a bottom-aligned grid with small captions, and nothing else. */
+:root {
+  --ground: #fbfaf8;   /* gallery wall: white with a trace of warmth */
+  --ink: #1e1d1b;      /* text */
+  --quiet: #8b877f;    /* captions, inactive nav */
+  --rule: #e7e4df;     /* the one hairline, on the artwork page */
+  --sans: "Hanken Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --gutter: clamp(20px, 4.5vw, 72px);
+  color-scheme: light;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  padding-inline: var(--gutter);
+  background: var(--ground);
+  color: var(--ink);
+  font: 400 14px/1.6 var(--sans);
+  font-feature-settings: "kern";
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+a:focus-visible { outline: 1px solid var(--ink); outline-offset: 5px; }
+img { display: block; max-width: 100%; height: auto; }
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap;
+}
+.skip { position: absolute; left: var(--gutter); top: -40px; font-size: 12px; }
+.skip:focus { top: 12px; }
+
+/* Header */
+.site-header {
+  display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline;
+  gap: 14px 32px;
+  max-width: 1640px; margin-inline: auto;
+  padding-block: clamp(28px, 4.5vw, 52px) clamp(48px, 7vw, 104px);
+}
+.name {
+  font-size: 13px; font-weight: 500;
+  letter-spacing: 0.22em; text-transform: uppercase;
+}
+.nav { display: flex; gap: clamp(20px, 2.6vw, 36px); margin: 0; padding: 0; list-style: none; }
+.nav a {
+  font-size: 11.5px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--quiet);
+}
+.nav a:hover, .nav a[aria-current="page"] { color: var(--ink); }
+
+main { max-width: 1640px; margin-inline: auto; }
+
+/* Work: bottom-aligned grid so captions sit on one line, works keep their proportions */
+.grid {
+  list-style: none; margin: 0; padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  column-gap: clamp(40px, 6.5vw, 112px);
+  row-gap: clamp(64px, 8vw, 136px);
+}
+.tile a { display: block; }
+.frame {
+  display: flex; align-items: flex-end; justify-content: center;
+  aspect-ratio: 1 / 1;
+}
+.frame img { width: auto; height: auto; max-width: 100%; max-height: 100%; }
+.cap {
+  display: block; margin-top: 16px;
+  font-size: 12.5px; color: var(--quiet); text-align: center;
+}
+.cap i { color: var(--ink); }
+.tile a:hover .cap i { text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+
+@media (max-width: 1040px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) {
+  .grid { grid-template-columns: minmax(0, 1fr); row-gap: 64px; }
+  .frame { aspect-ratio: auto; display: block; }
+  .frame img { width: 100%; max-width: 100%; max-height: none; }
+  .cap { text-align: left; margin-top: 12px; }
+}
+
+/* Single artwork */
+.piece { margin: 0; }
+.piece-img { display: flex; justify-content: center; }
+.piece-img img {
+  width: auto; height: auto; max-width: 100%;
+  max-height: calc(100vh - 330px);
+  max-height: calc(100svh - 330px);
+  min-height: 0;
+}
+.piece-foot {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto;
+  gap: 24px 48px; align-items: start;
+  margin-top: 32px; padding-top: 18px;
+  border-top: 1px solid var(--rule);
+}
+.meta { font-size: 13px; line-height: 1.75; min-width: 0; }
+.meta h1 { font: inherit; margin: 0; }
+.meta p { margin: 0; color: var(--quiet); }
+.meta .note { color: var(--ink); max-width: 60ch; margin-top: 14px; line-height: 1.7; }
+.pager {
+  display: flex; gap: 22px; align-items: baseline;
+  font-size: 11.5px; letter-spacing: 0.14em; text-transform: uppercase;
+}
+.pager a { color: var(--quiet); }
+.pager a:hover { color: var(--ink); }
+.pager .count { color: var(--quiet); letter-spacing: 0.06em; font-variant-numeric: tabular-nums; }
+
+@media (max-width: 640px) {
+  .piece-img img { width: 100%; max-width: 100%; max-height: none; }
+  .piece-foot { grid-template-columns: minmax(0, 1fr); margin-top: 20px; }
+  .pager { flex-wrap: wrap; gap: 14px 20px; }
+}
+
+/* About */
+.about {
+  display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+  gap: clamp(36px, 7vw, 128px); align-items: start;
+  max-width: 1240px;
+}
+.about figure { margin: 0; }
+.about figcaption { margin-top: 12px; font-size: 12px; color: var(--quiet); }
+.bio { max-width: 36rem; font-size: 15px; line-height: 1.75; }
+.bio h1 { font-size: 11.5px; font-weight: 400; letter-spacing: 0.16em; text-transform: uppercase; color: var(--quiet); margin: 0 0 28px; }
+.bio p { margin: 0 0 1.15em; text-wrap: pretty; }
+/* CV: awards, residencies, exhibitions */
+.cv { margin-top: 56px; }
+.cv h2 { font-size: 11.5px; font-weight: 400; letter-spacing: 0.16em; text-transform: uppercase; color: var(--quiet); margin: 0 0 18px; }
+.cv dl { display: grid; gap: 8px; margin: 0; font-size: 14px; line-height: 1.6; }
+.cv dl div { display: grid; grid-template-columns: 3.5rem minmax(0, 1fr); gap: 16px; }
+.cv dt { color: var(--quiet); font-variant-numeric: tabular-nums; }
+.cv dd { margin: 0; }
+.cv dd a { border-bottom: 1px solid var(--rule); }
+.cv dd a:hover { border-color: var(--ink); }
+@media (max-width: 760px) { .about { grid-template-columns: minmax(0, 1fr); } .about figure { max-width: 420px; } }
+
+/* Contact */
+.contact { display: grid; gap: 22px; margin: 0; font-size: 15px; }
+.contact div { display: grid; grid-template-columns: 9rem minmax(0, 1fr); gap: 4px 24px; }
+.contact dt { font-size: 11.5px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--quiet); padding-top: 3px; }
+.contact dd { margin: 0; overflow-wrap: anywhere; }
+.contact a { border-bottom: 1px solid var(--rule); }
+.contact a:hover { border-color: var(--ink); }
+@media (max-width: 480px) { .contact div { grid-template-columns: minmax(0, 1fr); } }
+
+/* Footer */
+.site-footer {
+  max-width: 1640px; margin-inline: auto;
+  padding-block: clamp(96px, 12vw, 176px) 40px;
+  font-size: 11px; color: var(--quiet); letter-spacing: 0.04em;
+}

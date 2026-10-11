@@ -1,0 +1,48 @@
+{
+  "portrait": "/images/uploads/scott-sullivan-portrait.jpg",
+  "portrait_caption": "",
+  "bio": "Scott Sullivan is a painter based in Brevard, North Carolina. He grew up in Mississippi and has lived in the mountains of western North Carolina for about twenty years.\n\nHe studied with Anthony Thaxton and Wyatt Waters early on, and later with Brent Funderburk at Mississippi State University. For many years his working life centered on carpentry, woodworking, and building. Painting stayed with him throughout, and he has now returned to it as his main practice.\n\nWorking mostly in acrylic, he paints landscapes, towns, and ordinary places, and he is more concerned with how a place feels than with recording what it looks like. The paintings move between representation and abstraction. They are built up in layers of gestural marks and expressive color, often with the underdrawing left visible, and they return again and again to atmosphere, memory, and perception.\n\nHe is returning to Mississippi to paint the place that raised him.",
+  "cv": [
+    {
+      "heading": "Galleries",
+      "entries": [
+        {
+          "year": "",
+          "text": "Newfound Artisan, Brevard, NC"
+        }
+      ]
+    },
+    {
+      "heading": "Awards",
+      "entries": [
+        {
+          "year": "2026",
+          "text": "First Place, Brevard Plein Air Festival"
+        },
+        {
+          "year": "2025",
+          "text": "Best in Show, Brevard Plein Air Festival"
+        }
+      ]
+    },
+    {
+      "heading": "Talks",
+      "entries": [
+        {
+          "year": "2026",
+          "text": "Artist talk, Transylvania Art Guild, Brevard, NC"
+        }
+      ]
+    },
+    {
+      "heading": "Press",
+      "entries": [
+        {
+          "year": "2026",
+          "text": "“Brevard artist Scott Sullivan to speak at guild meeting,” The Transylvania Times",
+          "link": "https://www.transylvaniatimes.com/arts/brevard-artist-scott-sullivan-to-speak-at-guild-meeting/article_b211dc99-844c-4953-8419-ee0319a39e47.html"
+        }
+      ]
+    }
+  ]
+}

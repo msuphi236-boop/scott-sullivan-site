@@ -1,0 +1,88 @@
+# Content editor for the website. Open yoursite.com/admin to use it.
+backend:
+  name: github
+  repo: YOUR-GITHUB-USERNAME/scott-sullivan-site   # <- change once, when setting up
+  branch: main
+  commit_messages:
+    update: "Update {{slug}}"
+
+# Lets you try the editor on your own computer (npm run cms) before going live.
+local_backend: true
+
+site_url: https://scottsullivanart.com
+display_url: https://scottsullivanart.com
+media_folder: public/images/uploads
+public_folder: /images/uploads
+
+collections:
+  - name: work
+    label: Paintings
+    editor: { preview: false }
+    files:
+      - name: artworks
+        label: All paintings
+        file: content/artworks.json
+        description: Add, edit, or remove paintings. Drag paintings up or down to change their order on the website.
+        fields:
+          - name: artworks
+            label: Paintings
+            label_singular: painting
+            widget: list
+            collapsed: true
+            add_to_top: true
+            summary: "{{fields.title}}  ·  {{fields.year}}"
+            fields:
+              - { name: image, label: Image, widget: image, hint: "A high-quality JPG, ideally 2500–4000 px on the long side. Crop to the edge of the painting." }
+              - { name: title, label: Title, widget: string }
+              - { name: year, label: Year, widget: string, required: false }
+              - { name: medium, label: Medium, widget: string, required: false, hint: "e.g. Oil on canvas" }
+              - { name: dimensions, label: Dimensions, widget: string, required: false, hint: "e.g. 30 × 40 in" }
+              - { name: availability, label: Collection or availability, widget: string, required: false, hint: "e.g. Available, Private collection. Leave blank to show nothing." }
+              - { name: description, label: Description, widget: text, required: false }
+              - { name: published, label: Show on website, widget: boolean, default: true }
+
+  - name: pages
+    label: Pages
+    editor: { preview: false }
+    files:
+      - name: about
+        label: About
+        file: content/about.json
+        fields:
+          - { name: portrait, label: Portrait photo, widget: image, required: false }
+          - { name: portrait_caption, label: Portrait caption, widget: string, required: false, hint: "Optional, e.g. photo credit" }
+          - { name: bio, label: Biography, widget: markdown, buttons: [bold, italic, link], editor_components: [], modes: [rich_text] }
+          - name: cv
+            label: Awards, residencies, exhibitions
+            label_singular: section
+            widget: list
+            required: false
+            hint: "Each section (e.g. Awards, Residencies, Exhibitions) appears under the biography. Empty sections are hidden."
+            summary: "{{fields.heading}}"
+            fields:
+              - { name: heading, label: Section heading, widget: string }
+              - name: entries
+                label: Entries
+                label_singular: entry
+                widget: list
+                add_to_top: true
+                summary: "{{fields.year}}  {{fields.text}}"
+                fields:
+                  - { name: year, label: Year, widget: string }
+                  - { name: text, label: Entry, widget: string, hint: "e.g. First Place, Brevard Plein Air Festival" }
+                  - { name: link, label: Link, widget: string, required: false, hint: "Optional web address, e.g. for a press article" }
+      - name: contact
+        label: Contact
+        file: content/contact.json
+        fields:
+          - { name: email, label: Email address, widget: string }
+          - { name: phone, label: Phone, widget: string, required: false }
+          - { name: instagram, label: Instagram username, widget: string, required: false, hint: "Without the @" }
+          - { name: location, label: Studio location, widget: string, required: false }
+      - name: site
+        label: Site settings
+        file: content/site.json
+        fields:
+          - { name: name, label: Artist name, widget: string }
+          - { name: url, label: Website address, widget: string }
+          - { name: description, label: Search engine description, widget: text, hint: "One sentence shown in Google results." }

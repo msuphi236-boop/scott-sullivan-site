@@ -1,0 +1,94 @@
+{
+  "artworks": [
+    {
+      "image": "/images/uploads/nursery.jpg",
+      "title": "Nursery",
+      "year": "",
+      "medium": "",
+      "dimensions": "",
+      "availability": "",
+      "description": "",
+      "published": true
+    },
+    {
+      "image": "/images/uploads/winter-woods.jpg",
+      "title": "Winter Woods",
+      "year": "",
+      "medium": "",
+      "dimensions": "",
+      "availability": "",
+      "description": "",
+      "published": true
+    },
+    {
+      "image": "/images/uploads/clay-pots.jpg",
+      "title": "Clay Pots",
+      "year": "",
+      "medium": "",
+      "dimensions": "",
+      "availability": "",
+      "description": "",
+      "published": true
+    },
+    {
+      "image": "/images/uploads/airstream.jpg",
+      "title": "Airstream",
+      "year": "",
+      "medium": "",
+      "dimensions": "",
+      "availability": "",
+      "description": "",
+      "published": true
+    },
+    {
+      "image": "/images/uploads/bare-trees.jpg",
+      "title": "Bare Trees",
+      "year": "",
+      "medium": "",
+      "dimensions": "",
+      "availability": "",
+      "description": "",
+      "published": true
+    },
+    {
+      "image": "/images/uploads/tree-and-power-line.jpg",
+      "title": "Tree and Power Line",
+      "year": "",
+      "medium": "",
+      "dimensions": "",
+      "availability": "",
+      "description": "",
+      "published": true
+    },
+    {
+      "image": "/images/uploads/blue-gate.jpg",
+      "title": "Blue Gate",
+      "year": "",
+      "medium": "",
+      "dimensions": "",
+      "availability": "",
+      "description": "",
+      "published": true
+    },
+    {
+      "image": "/images/uploads/house-with-shade-tree.jpg",
+      "title": "House with Shade Tree",
+      "year": "",
+      "medium": "",
+      "dimensions": "",
+      "availability": "",
+      "description": "",
+      "published": true
+    },
+    {
+      "image": "/images/uploads/reclining-figure.jpg",
+      "title": "Reclining Figure",
+      "year": "",
+      "medium": "",
+      "dimensions": "",
+      "availability": "",
+      "description": "",
+      "published": true
+    }
+  ]
+}
