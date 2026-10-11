@@ -140,7 +140,7 @@ const footer = `<footer class="site-footer">© ${YEAR} ${esc(site.name)}</footer
 const workIndex = () => `<h1 class="visually-hidden">Work</h1>
 <ul class="grid">
 ${works.map((w, i) => `  <li class="tile" id="${w.slug}"><a href="${link(`/work/${w.slug}/`)}">
-    <span class="frame">${img(w.im, altText(w), { sizes: '(min-width: 1040px) 30vw, (min-width: 640px) 45vw, 100vw', eager: i < 3, priority: i === 0 })}</span>
+    <span class="frame">${img(w.im, altText(w), { sizes: '(min-width: 640px) 45vw, 100vw', eager: i < 3, priority: i === 0 })}</span>
     <span class="cap">${titleLine(w)}</span></a></li>`).join('\n')}
 </ul>`;
 
