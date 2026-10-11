@@ -167,3 +167,19 @@ body:has(.slideshow) .site-header { padding-block: 28px 32px; }
   .slide .piece-img img { max-width: 100%; }
   .slider-controls { gap: 18px; font-size: 10px; }
 }
+
+/* Neighboring paintings hint at the rest of the sequence. */
+.slideshow { position: relative; overflow: hidden; }
+.slideshow .slide .piece-img img { max-width: 60%; }
+.peek { position: absolute; top: calc((100svh - 250px) * .15); height: calc((100svh - 250px) * .7); width: 14%; overflow: hidden; border: 0; padding: 0; background: none; cursor: pointer; opacity: .65; }
+.peek:hover, .peek:focus-visible { opacity: 1; }
+.peek-prev { left: 0; }
+.peek-next { right: 0; }
+.peek img { height: 100%; width: auto; max-width: none; object-fit: contain; }
+.peek-prev img { position: absolute; right: 0; }
+.peek-next img { position: absolute; left: 0; }
+.peek:focus-visible { outline: 1px solid var(--ink); outline-offset: -2px; }
+@media (max-width: 640px) {
+  .slideshow .slide .piece-img img { max-width: 74%; }
+  .peek { width: 9%; top: calc((100svh - 280px) * .15); height: calc((100svh - 280px) * .7); }
+}
