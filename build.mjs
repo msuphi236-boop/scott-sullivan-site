@@ -102,6 +102,9 @@ const img = (im, alt, { sizes, eager = false, priority = false } = {}) =>
 
 // ---------- data ----------
 const used = new Set();
+// Clear output before image processing so generated WebP files survive.
+if (!PREVIEW) await fs.rm(OUT, { recursive: true, force: true });
+
 const works = [];
 for (const a of artworks) {
   if (a.published === false || !a.image) continue;
@@ -279,7 +282,6 @@ ${router}
   await write('index.html', page);
   console.log('Preview written to preview/index.html');
 } else {
-  await fs.rm(OUT, { recursive: true, force: true });
   await copyDir(path.join(ROOT, 'public'), OUT);
   await copyDir(path.join(ROOT, 'src'), path.join(OUT, 'assets'));
 
