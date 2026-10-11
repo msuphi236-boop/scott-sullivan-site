@@ -37,10 +37,26 @@
   before.className = 'peek peek-prev'; after.className = 'peek peek-next';
   before.setAttribute('aria-label', 'Previous painting'); after.setAttribute('aria-label', 'Next painting');
   root.appendChild(before); root.appendChild(after);
+  function sizePreviews() {
+    var image = slides[current].querySelector('.piece-img img');
+    if (!image) return;
+    var bounds = image.getBoundingClientRect(), container = root.getBoundingClientRect();
+    [before, after].forEach(function (button) {
+      button.style.top = (bounds.top - container.top) + 'px';
+      button.style.height = bounds.height + 'px';
+    });
+  }
+  if (window.ResizeObserver) {
+    var observer = new ResizeObserver(sizePreviews);
+    slides.forEach(function (slide) { observer.observe(slide.querySelector('.piece-img img')); });
+  }
+  window.addEventListener('resize', sizePreviews);
+  root.addEventListener('load', sizePreviews, true);
   function previews() {
     before.innerHTML = slides[(current - 1 + slides.length) % slides.length].querySelector('.piece-img').innerHTML;
     after.innerHTML = slides[(current + 1) % slides.length].querySelector('.piece-img').innerHTML;
     [before, after].forEach(function (b) { b.querySelectorAll('img').forEach(function (im) { im.alt = ''; im.loading = 'eager'; }); });
+    sizePreviews();
   }
   before.addEventListener('click', function () { move(-1); });
   after.addEventListener('click', function () { move(1); });
