@@ -223,7 +223,7 @@ ${header(current === 'piece' ? 'work' : current)}
 ${body}
 </main>
 ${footer}
-${(current === 'piece' || current === 'work') ? '<script src="/assets/site.js" defer></script>' : ''}
+${(current === 'piece' || current === 'work') ? '<script src="/assets/site.js?v=preview-height-2" defer></script>' : ''}
 </body>
 </html>
 `;
