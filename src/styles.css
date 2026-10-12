@@ -183,3 +183,14 @@ body:has(.slideshow) .site-header { padding-block: 28px 32px; }
   .slideshow .slide .piece-img img { max-width: 74%; }
   .peek { width: 9%; top: calc((100svh - 280px) * .15); height: calc((100svh - 280px) * .7); }
 }
+
+/* Mobile visitors browse square thumbnails instead of the desktop slider. */
+.mobile-gallery { display: none; }
+@media (max-width: 640px) {
+  .slideshow { display: none; }
+  .mobile-gallery { display: block; }
+  .mobile-gallery .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 14px; row-gap: 24px; }
+  .mobile-gallery .frame { display: block; aspect-ratio: 1 / 1; overflow: hidden; }
+  .mobile-gallery .frame img { width: 100%; height: 100%; max-width: 100%; max-height: none; margin: 0; object-fit: cover; }
+  .mobile-gallery .cap { text-align: left; margin-top: 8px; font-size: 11px; }
+}
