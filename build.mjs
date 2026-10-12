@@ -156,7 +156,7 @@ const workIndex = () => `<section class="slideshow" aria-label="Selected paintin
     <button type="button" data-step="1">Next</button>
     <a href="/all/">View all</a>
   </nav>
-</section>`;
+</section><div class="mobile-gallery">${workGrid()}</div>`;
 
 const piece = (w, i) => {
   const prev = works[(i - 1 + works.length) % works.length];
@@ -214,7 +214,7 @@ const doc = ({ title, description, pathname, current, body, image, jsonld }) => 
 <meta property="og:url" content="${SITE_URL}${pathname}">
 ${image ? `<meta property="og:image" content="${SITE_URL}${esc(image)}"><meta name="twitter:card" content="summary_large_image">` : ''}
 ${FONTS}
-<link rel="stylesheet" href="/assets/styles.css?v=opacity40-hover60">
+<link rel="stylesheet" href="/assets/styles.css?v=mobile-grid-1">
 ${jsonld ? `<script type="application/ld+json">${JSON.stringify(jsonld)}</script>` : ''}
 </head>
 <body>
