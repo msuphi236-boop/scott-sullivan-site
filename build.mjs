@@ -214,7 +214,7 @@ const doc = ({ title, description, pathname, current, body, image, jsonld }) => 
 <meta property="og:url" content="${SITE_URL}${pathname}">
 ${image ? `<meta property="og:image" content="${SITE_URL}${esc(image)}"><meta name="twitter:card" content="summary_large_image">` : ''}
 ${FONTS}
-<link rel="stylesheet" href="/assets/styles.css?v=mobile-grid-1">
+<link rel="stylesheet" href="/assets/styles.css?v=mobile-grid-2">
 ${jsonld ? `<script type="application/ld+json">${JSON.stringify(jsonld)}</script>` : ''}
 </head>
 <body>
