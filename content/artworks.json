@@ -1,6 +1,16 @@
 {
   "artworks": [
     {
+      "image": "/images/uploads/clay-pots.jpg",
+      "title": "Clay Pots",
+      "year": "",
+      "medium": "",
+      "dimensions": "",
+      "availability": "",
+      "description": "",
+      "published": true
+    },
+    {
       "image": "/images/uploads/nursery.jpg",
       "title": "Sundays",
       "year": "",
@@ -43,16 +53,6 @@
     {
       "image": "/images/uploads/blue-gate.jpg",
       "title": "Blue Gate",
-      "year": "",
-      "medium": "",
-      "dimensions": "",
-      "availability": "",
-      "description": "",
-      "published": true
-    },
-    {
-      "image": "/images/uploads/clay-pots.jpg",
-      "title": "Clay Pots",
       "year": "",
       "medium": "",
       "dimensions": "",
