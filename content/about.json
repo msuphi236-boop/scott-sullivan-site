@@ -4,6 +4,28 @@
   "bio": "Scott Sullivan is a painter and carpenter based in Brevard, North Carolina. Raised in Mississippi, he has spent nearly twenty years in the mountains of western North Carolina.\n\nAfter years focused on carpentry and building, he has returned to painting with renewed attention. He works outdoors and in the studio, mostly in acrylic, drawing from the landscapes, streets, and everyday places around him.\n\nHis paintings move between representation and abstraction. Gestural marks, expressive color, and visible underdrawing leave room for the work to remain open and unfinished.",
   "cv": [
     {
+      "heading": "Education",
+      "entries": [
+        {
+          "year": "2008–2009",
+          "text": "Graduate Studies in Studio Art, East Carolina University"
+        },
+        {
+          "year": "",
+          "text": "Bachelor's Degree in Interdisciplinary Studies, Art, Marketing, and Business, Mississippi State University"
+        }
+      ]
+    },
+    {
+      "heading": "Studio & Gallery Experience",
+      "entries": [
+        {
+          "year": "2011",
+          "text": "Studio Artist, Riverside Studios, Asheville, NC"
+        }
+      ]
+    },
+    {
       "heading": "Galleries",
       "entries": [
         {
